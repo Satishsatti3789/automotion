@@ -1,0 +1,8 @@
+#!/bin/bash
+
+sudo labauto clone &>/dev/null
+source /tmp/labautomation/dry/common-functions.sh
+
+
+export AWS_PAGER=""
+bash /tmp/labautomation/aws.sh $*
