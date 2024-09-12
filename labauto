@@ -15,27 +15,27 @@ if [ "$1" == "clean" ]; then
   echo -e "\e[1;35m Cleanup Succeeded\e[0m"
   exit 0
 else
-  if [ -d /tmp/labautomation ]; then
-    cd /tmp/labautomation
+  if [ -d /tmp/automation ]; then
+    cd /tmp/automation
     git pull &>/dev/null
     if [ $? -ne 0 ]; then
       cd /tmp
-      rm -rf /tmp/lab*
-      git clone https://github.com/learndevopsonline/labautomation.git /tmp/labautomation &>/dev/null
+      rm -rf /tmp/auto*
+      git clone https://github.com/Satishsatti3789/automotion.git /tmp/automation &>/dev/null
     fi
   else
-    git clone https://github.com/learndevopsonline/labautomation.git /tmp/labautomation &>/dev/null
+    git clone https://github.com/Satishsatti3789/automotion.git /tmp/automation &>/dev/null
   fi
 fi
 
-if [ ! -f /tmp/labautomation/setup.sh ]; then
-  echo -e "\e[1;33m💡💡 Hint! Try Using \e[0m\e[1m'sudo labauto clean'\e[0m"
+if [ ! -f /tmp/automation/setup.sh ]; then
+  echo -e "\e[1;33m💡💡 Hint! Try Using \e[0m\e[1m'sudo auto clean'\e[0m"
   exit 1
 fi
 
-source /tmp/labautomation/dry/common-functions.sh
+source /tmp/automation/dry/common-functions.sh
 
 ## Checking Root User or not.
 CheckRoot
 
-bash /tmp/labautomation/setup.sh $*
+bash /tmp/automation/setup.sh $*
